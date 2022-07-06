@@ -1,0 +1,63 @@
+{% extends "polls/base.html" %}
+{#<!-- CSS styles -->#}
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "polls/css/recipes.css" %}">
+{% endblock %}
+{#<!-- App name (link to the home page) -->#}
+{% block name %}<a id="cname" href="/dietCreation/">DietCreation</a>{% endblock %}
+{#<!-- Content for displaying list of recipes -->#}
+{% block content %}
+    {#<!-- Main header (title)-->#}
+    <h1>{% block title %}Recipes{% endblock %}</h1>
+    {#<!-- If user is authenticated then show users panel -->#}
+    {#<!-- Hint text for this page-->#}
+    <p id="hint" class="hint">Create a book of your favorite recipes or add one you like from the general list.<br>You can also view all information about a recipe by clicking on it.</p>
+    {#<!-- List (line) with general icons -->#}
+    <div class="list-icons">
+        {#<!-- Add icon (button) for creating new recipe -->#}
+        <a href="/dietCreation/recipes/createRecipe/">
+            <img src="{% static "polls/images/addBtn.svg" %}" alt="Add new item icon">
+        </a>
+        {#<!-- Hint icon (button) for open/hide a hint -->#}
+        <div class="hintBtn">
+            <img id="hintBtn" src="{% static "polls/images/hintBtn.svg" %}" alt="Hint icon"
+                onclick="openHint()">
+        </div>
+    </div>
+    {#<!-- List of recipes. If there is any recipe in data then show them all. -->#}
+    <div id="list-of-recipes">
+        {#<!-- For each recipe in data create a new block -->#}
+        {% if recipes %}
+            {% for recipe in recipes %}
+                <div class="recipe-info">
+                    <a href="/dietCreation/recipe/{{ recipe.id }}/"><h4>{{ recipe.name }}</h4></a>
+                    <div class="recipe-type">{{ recipe.type }}</div>
+                    <p>Ingredients
+                        {% for ingredient in ingredients %}{% if ingredient.recipe_id.id == recipe.id %}
+                            {% if forloop.counter == 1 %}
+                                : {{ ingredient.product_id.name }}
+                            {% else %}
+                                , {{ ingredient.product_id.name }}
+                            {% endif %}
+                        {% endif %}{% endfor %}
+                    </p>
+                    <div class="acts">
+                        <a href="/dietCreation/recipe/{{ recipe.id }}/delete" style="display: inline-block;">
+                            <img src="{% static "polls/images/deleteBtn.svg" %}" alt="Delete">
+                        </a>
+                        <a href="#" style="display: inline-block;">
+                            <img src="{% static "polls/images/editBtn.svg" %}" alt="Edit">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {#<!-- If there is no recipe in data then let user know. -->#}
+        {% else %}
+            <div class="empty-list">
+                <p>There are currently no recipes in our database</p>
+                <p><a class="btn btn-secondary" href="/dietCreation/recipes/createRecipe/">Create recipe</a></p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

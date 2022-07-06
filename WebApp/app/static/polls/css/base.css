@@ -1,0 +1,159 @@
+button {
+    margin: 5px;
+}
+/*@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');*/
+
+body {
+    background-image: url("../images/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+}
+#body-container {
+    width: auto;
+    max-width: 428px;
+    margin: 0 auto;
+    padding: 5px 10px;
+    min-height: 100vh;
+    background-color: #e8fedaa1;
+    box-shadow: 0 0 10px #99ad88;
+}
+
+.menu-icon {
+    position: relative;
+    z-index: 1;
+}
+.menu-icon:before, .menu-icon:after, .menu-icon span {
+      transition: all 0.2s linear;
+      background: #5a5a5a;
+      content: "";
+      display: block;
+      height: 5px;
+      width: 40px;
+      border-radius: 3px;
+      margin: 7px 0;
+    }
+.menu-icon:hover:before, .menu-icon:hover:after, .menu-icon:hover span {
+    cursor: pointer;
+}
+
+.open {
+    height: 30px;
+    width: 250px;
+}
+.open:before{
+    transition: all 0.2s linear;
+    transform: translate(0, 12px) rotate(135deg);
+}
+.open:after {
+    transition: all 0.2s linear;
+    transform:  rotate(-135deg);
+}
+.open span {
+    display: none;
+}
+.open:hover:before, .open:hover:after, .open:hover span {
+    background: #5a5a5a;
+    cursor: pointer;
+}
+
+.sidebar {
+    display: none;
+}
+.navbar .open-sidebar {
+    display: block;
+    position: relative;
+    width: 100vw;
+    text-align: center;
+    margin: 15px 5px 5px 5px;
+}
+.sidebar a {
+    margin: 2px 0;
+    background-color: #bacaad91;
+}
+a {
+    color: black;
+}
+
+/* ADDITIONAL PAGES */
+#cname {
+    font-family: 'Satisfy', cursive;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.788);
+    position: absolute;
+    left: 100%;
+    transform: translateX(-110%);
+    top: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.7em;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 600;
+}
+
+.content img{
+    width: 20px;
+    height: 20px;
+    margin: 0 2.5px;
+}
+
+.list-icons, .buttons {
+    display: flex;
+    flex-direction: row;
+}
+.list-icons {
+    margin-bottom: 5px;
+}
+.hintBtn {
+    position: relative;
+    left: 87%;
+}
+.hint {
+    display: none;
+}
+.open-hint {
+    display: block;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border: 1px solid rgba(186, 202, 173);
+    margin-bottom: 0;
+    padding: 3px;
+}
+
+.acts {
+    display: grid;
+    grid-template-columns: 1fr 20px 20px;
+    grid-column-gap: 3px;
+    margin-bottom: 3px;
+}
+.acts a{
+    grid-row: 1/2;
+    justify-self: end;
+}
+.acts a:nth-of-type(1){
+    grid-column: 2/3;
+}
+.acts a:nth-of-type(2){
+    grid-column: 3/4;
+}
+
+
+.upper-first::first-letter {
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 700px){
+    body {
+        background-image: url("../images/bg.jpg");
+    }
+}
+
+@media screen and (max-width: 495px){
+    #body-container {
+        box-shadow: none;
+    }
+}

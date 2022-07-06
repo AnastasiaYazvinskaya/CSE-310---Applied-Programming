@@ -1,0 +1,36 @@
+{% extends "polls/base.html" %}
+{% block name %}<a id="cname" href="/dietCreation/">DietCreation</a>{% endblock %}
+<!-- Content for displaying chosen recipe -->
+{% block content %}
+    <!-- Recipe name -->
+    <h1>{% block title %} {{recipe.name}} {% endblock %}
+        <!-- Recipe type -->
+        <br><span style="font-size: small; margin-top: -10px;">({{ recipe.type }})</span>
+    </h1>
+    <div class="info">
+        <!-- List of ingredients-->
+        <div style="width: 300px;">
+            <h5>Ingredients:</h5>
+            {% for ingredient in ingredients %}
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="upper-first">{{ ingredient.product_id.name }}</span>
+                    <span class="weight badge badge-primary badge-pill">{{ ingredient.weight|floatformat:"-2" }} {{ ingredient.weight_type }}</span>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <!-- Recipe description -->
+        <h5>Description:</h5>
+        {% for step in recipe.description %}
+            <p>{{ forloop.counter }}. {{ step }}</p>
+        {% endfor %}
+        <div>
+            <a href="/dietCreation/recipe/{{ recipe.id }}/delete" style="display: inline-block;">
+                <span class="btn btn-outline-danger btn-sm">Delete</span>
+            </a>
+            <a href="#" style="display: inline-block;">
+                <span class="btn btn-outline-warning btn-sm">Change</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}

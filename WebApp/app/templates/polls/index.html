@@ -1,0 +1,35 @@
+{% extends "polls/base.html" %}
+{#<!-- CSS styles -->#}
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "polls/css/index.css" %}">
+{% endblock %}
+{#<!-- Content for starting page -->#}
+{% block content %}
+    {#<!-- Welcome title -->#}
+    <h1>{% block title %} DietCreation {% endblock %}</h1>
+    {#<!-- Look at the products list -->#}
+    <div>
+        <a href="#">
+            <h2>Products</h2>
+            <p style="font-size: small; line-height: 2px; margin-bottom: 10px; color: red;">(This feature is not yet available)</p>
+            <p>Keep a list of the products you use.</p>
+        </a>
+    </div>
+    {#<!-- Look at the recipes list -->#}
+    <div>
+        <a href="/dietCreation/recipes/">
+            <h2>Recipes</h2>
+            <p>Create your own recipe book.</p>
+        </a>
+    </div>
+    {#<!-- Look at the menu -->#}
+    <div>
+        <a href="#">
+            <h2>Menu</h2>
+            <p style="font-size: small; line-height: 2px; margin-bottom: 10px; color: red;">(This feature is not yet available)</p>
+            <p>Create a menu for a week, two or a whole month.</p>
+            
+        </a>
+    </div>
+{% endblock %}

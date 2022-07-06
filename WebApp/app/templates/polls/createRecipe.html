@@ -1,0 +1,102 @@
+{% extends 'polls/base.html' %}
+{#<!-- Styles -->#}
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "polls/css/create.css" %}">
+{% endblock %}
+{#<!-- JS Scripts -->#}
+{% block script1 %}
+    <script src="{% static "polls/js/create.js" %}"></script>
+{% endblock %}
+{#<!-- App name (link to the home page) -->#}
+{% block name %}<a id="cname" href="/dietCreation/">DietCreation</a>{% endblock %}
+{#<!-- Content for creating new recipe -->#}
+{% block content %}
+    {#<!-- Main header (title) -->#}
+    <h1>{% block title %} New recipe {% endblock %}</h1>
+    {#<!-- Hint -->#}
+    <p id="hint" class="hint"><br></p>
+    {#<!-- Hint icon for open/close a hint -->#}
+    <div class="list-icons">
+        <div class="hintBtn">
+            <img id="hintBtn" src="{% static "polls/images/hintBtn.svg" %}" alt="Hint icon"
+                onclick="openHint()">
+        </div>
+    </div>
+    {#<!-- Form for recipe detiles (if it has new products, then after refreshing all data will be on it's place) -->#}
+    <form method="POST" class="form">
+        {% csrf_token %}
+        {#<!-- Text field for recipe name -->#}
+        <div id="recipeName" class="form-group">
+            <label for="r_name">Name<span style="color: red;">*</span></label>
+            <input type="text" name="r_name" placeholder="Recipe name" 
+                class="form-control" value="" required></input>
+        </div>
+        {#<!-- Text field for recipe type with list of availiable variants -->#}
+        <div id="types" class="form-group">
+            <label for="dishtype">Dish type</label>
+            <input type="text" name="dishtype" class="form-control" 
+                placeholder="Soup/Second course/Dessert/Appetizer/Drink/other" 
+                value="" required></input>
+        </div>
+        {#<!-- Ingredients -->#}
+        <div id="ingredients">
+            <h5>Ingredients<span style="color: red;">*</span>:</h5>
+            {#<!-- Starting fields for first ingredient -->#}
+            <div class="form-group">
+                {#<!-- Ingredient name -->#}
+                <label for="name_0">1 Product name</label>
+                <input list="products" name="name_0" class="form-control" 
+                    placeholder="Product name" value="" required></input>  
+                <datalist id="products">
+                    {% for product in products %}
+                        <option class="upper-first" value="{{ product.name }}"></option>
+                    {% endfor %}
+                    {% for product in r_products %}
+                        <option class="upper-first" value="{{ product.name }}"></option>
+                    {% endfor %}
+                </datalist>
+                {#<!-- Ingredient weight -->#}
+                <div id="weight">
+                    <div class="form-group">
+                        <label for="weight_0">Amount</label>
+                        <input type="number" step="0.01" name="weight_0" placeholder="0.00"
+                            class="form-control" value="" required></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight-type_0">Weight type</label>
+                        <input type="text" name="weight-type_0" placeholder="kg, g, l, ml, pcs, etc."
+                            class="form-control" value="" required></input>
+                    </div>
+                </div>
+            </div>
+            {#<!-- Place for adding ingredients -->#}
+            <div id="ingredientAdd"></div>
+            {#<!-- Button for adding ingredients -->#}
+            <div class="form-group">
+                <button id="add" type="button" class="btn btn-secondary">Add ingredient</button>
+            </div>
+        </div>
+        {#<!-- Recipe description -->#}
+        <div id="description">
+            <h5>Description<span style="color: red;">*</span>:</h5>
+            <div class="form-group">
+                <label for="step_0">Step 1<span style="color: red;">*</span></label>
+                <textarea name="step_0" placeholder="Description of the recipe (step 1)" required
+                    class="form-control"></textarea>
+            </div>
+            <div id="stepAdd"></div>
+            <div class="form-group">
+                <button id="addStep" type="button" class="btn btn-secondary">Add step</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="recipe_as_product" id="recipe_as_product" value="1"/>
+            <label for="recipe_as_product">Mark as a separate ingredient</label>
+        </div>
+        {#<!-- Button for submiting form -->#}
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+{% endblock %}

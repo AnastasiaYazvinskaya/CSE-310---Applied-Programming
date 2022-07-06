@@ -1,0 +1,35 @@
+h1 {
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+    font-size: 3.2em;
+}
+.content div {
+    text-align: center;
+    /*background-color: aqua;*/
+    background-image: url("../images/border.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 5px auto;
+    height: 170px;
+    width: 300px;
+}
+.content div a {
+    color: black;
+}
+.content div a:hover {
+    text-decoration: none;
+}
+.content div a:hover h2 {
+    color: #5b6919;
+    font-weight: bold;
+}
+.content div a h2 {
+    font-family: 'Comfortaa', cursive;
+    color: #697a1c;
+    font-size: 1.4em;
+    padding-top: 33px;
+}
+.content div a p {
+    font-size: 0.9em;
+    padding: 0 35px;
+}
