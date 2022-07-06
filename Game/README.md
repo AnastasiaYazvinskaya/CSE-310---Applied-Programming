@@ -20,6 +20,9 @@ This programm was written in Python programming language. The following librarie
 # Future Work
 
 * Play zones for Mercury, Venus, Neptune and Jupiter. (The task is to create images of the background and three types of obstacles for each of the planets)
+
 * Fix the player's jumps. (This should respond to a keystroke once and smoothly rise and then fall)
+
 * Fix boundaries when flying in space. (Either create clear boundaries beyond which the ship cannot fly away, or vice versa, the camera should move when flying around the solar system, for which you need to add more objects to the background)
+
 * Improve play areas on planets so you can collect things or get points for actions.
