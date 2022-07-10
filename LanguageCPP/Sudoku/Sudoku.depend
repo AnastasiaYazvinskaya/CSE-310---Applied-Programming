@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1657355029 source:c:\users\kudas\onedrive\Рабочий стол\byu-idaho\2022 spring\cse 310 - applied programming\languagecpp\sudoku\test.cpp
+	<iostream>
+	<iomanip>
+	<ctime>
+	<string>
+	<locale>
+	<Windows.h>
+
+1657457072 source:c:\users\kudas\onedrive\Рабочий стол\byu-idaho\2022 spring\cse 310 - applied programming\languagecpp\sudoku\main.cpp
+	<iostream>
+	<iomanip>
+	<ctime>
+	<string>
+	<locale>
+	<Windows.h>
+	<fstream>
+	<conio.h>
+	<vector>
+	<sstream>
+
