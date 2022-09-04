@@ -9,15 +9,16 @@ The purpose of this application is for the user to store and share recipes, as w
 
 # Web Pages
 
-* Home page
+* Home page:
     Have links for three main sections of the app: Products (not availiable now), Recipes, Menu (not availiable now); with a little description of the purpose of each of them. (You can return to this page from any page of the application using the navigation block or by clicking on the name in the header.)
 
-* Recipes page
+* Recipes page:
     Display a full list of recipes with its name, type and list of ingredients which are taken from the database. Each recipe has delete and edit buttons. At the top of the list placed button for adding new recipe. If there are no recipes in the database, the user will be notified and a button to add a recipe will be shown. (You can return to this page from any page of the application using the navigation block.)
 
-* Recipe page
+* Recipe page:
     Display full information about a specific recipe which is taken from the database.(You can access this page only from the page of the main list of recipes by clicking on any of the displayed recipes.)
-* Create recipe page
+    
+* Create recipe page:
     This page contains a form to fill in information about the recipe. As a standard, she suggests adding: name, type, one ingredient, one cooking step of the recipe and mark the possibility to make it an ingredient for other recipes. If the recipe contains more than one ingredient or cooking step, then you must click on the corresponding button and an additional field will be added. After the form is completed and the user has clicked on the save recipe button, the user will be taken to a page with an updated list of recipes. (You can access this page only from the page of the main list of recipes by clicking on plus button at the top of list or if list is empty by "Create recipe" button.)
 
 # Development Environment
